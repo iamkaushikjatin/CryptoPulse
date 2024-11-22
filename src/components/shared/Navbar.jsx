@@ -13,40 +13,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import CryptoReactUser from "../../images/CryptoReactUserCropped.png";
 
-const PulseRectangle02Icon = (props) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 24 24" 
-    width={24} 
-    height={24} 
-    color="currentColor" 
-    fill="none" 
-    {...props}
-  >
-    <path 
-      d="M4.31802 19.682C3 18.364 3 16.2426 3 12C3 7.75736 3 5.63604 4.31802 4.31802C5.63604 3 7.75736 3 12 3C16.2426 3 18.364 3 19.682 4.31802C21 5.63604 21 7.75736 21 12C21 16.2426 21 18.364 19.682 19.682C18.364 21 16.2426 21 12 21C7.75736 21 5.63604 21 4.31802 19.682Z" 
-      stroke="currentColor" 
-      strokeWidth="1.5" 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
-    />
-    <path 
-      d="M6 13H7.5L9 9L10.5 16L12 13H13.5L15 8L16.5 13H18" 
-      stroke="currentColor" 
-      strokeWidth="1.5" 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
-    />
-  </svg>
-);
-
-
-
 function Navbar() {
   const navigate = useNavigate();
   const [theme, setTheme] = useState("dark");
   const [anchorEl, setAnchorEl] = React.useState(null);
-
   const [open, setOpen] = React.useState(false);
   const [defaultOpenTab, setDefaultOpenTab] = React.useState(0);
 
@@ -87,7 +57,7 @@ function Navbar() {
   };
 
   return (
-    <div id="app-container" className={`${theme} `}>
+    <div id="app-container" className={`${theme}`}>
       <div className="bg-white dark:bg-gray-950 min-h-screen">
         <AuthDialog
           open={open}
@@ -98,23 +68,42 @@ function Navbar() {
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="relative flex flex-shrink-0 items-center ">
-                  
-                  <PulseRectangle02Icon className="text-gray-900 dark:text-gray-300" />
-
+                <div className="relative flex flex-shrink-0 items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width={24}
+                    height={24}
+                    color="currentColor"
+                    fill="none"
+                  >
+                    <path
+                      d="M4.31802 19.682C3 18.364 3 16.2426 3 12C3 7.75736 3 5.63604 4.31802 4.31802C5.63604 3 7.75736 3 12 3C16.2426 3 18.364 3 19.682 4.31802C21 5.63604 21 7.75736 21 12C21 16.2426 21 18.364 19.682 19.682C18.364 21 16.2426 21 12 21C7.75736 21 5.63604 21 4.31802 19.682Z"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M6 13H7.5L9 9L10.5 16L12 13H13.5L15 8L16.5 13H18"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </div>
-                <div className="hidden sm:ml-6 sm:flex items-center space-x-6">
-          
+                <div className="sm:ml-6 sm:flex items-center space-x-0 sm:space-x-4">
                   <Link
                     to="/"
-                    className="text-gray-900 dark:text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium transition-all duration-300 ease-in-out"
+                    className="text-gray-900 dark:text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-3 text-sm font-medium transition-all duration-300 ease-in-out"
                   >
                     Dashboard
                   </Link>
                   <a
                     href="/watchlist"
                     onClick={checkAuthAndNavigateOrOpenModal}
-                    className="text-gray-900 dark:text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium transition-all duration-300 ease-in-out"
+                    className="text-gray-900 dark:text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-3 text-sm font-medium transition-all duration-300 ease-in-out"
                   >
                     Watchlist
                   </a>
@@ -127,7 +116,6 @@ function Navbar() {
                   className="relative rounded-full bg-gray-200 dark:bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 >
-                  <span className="absolute -inset-1.5" />
                   {theme === "dark" ? (
                     <IconMoon size={18} className="text-slate-500" />
                   ) : (
@@ -192,24 +180,6 @@ function Navbar() {
                   </Menu>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div className="sm:hidden" id="mobile-menu">
-            <div className="flex flex-row items-center space-y-1 px-2 pb-3 pt-2">
-              <Link
-                to="/"
-                className="text-gray-900 dark:text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium transition-all duration-300 ease-in-out"
-              >
-                Dashboard
-              </Link>
-              <a
-                href="#"
-                onClick={checkAuthAndNavigateOrOpenModal}
-                className="text-gray-900 dark:text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 mt-0 text-base font-medium transition-all duration-300 ease-in-out"
-              >
-                Watchlist
-              </a>
             </div>
           </div>
         </nav>
