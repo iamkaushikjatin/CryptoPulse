@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Line } from "react-chartjs-2";
@@ -59,8 +60,8 @@ const About = () => {
       {data ? (
         <div className="coin-details dark:bg-gray-900 bg-white transition-colors duration-300">
           <div className="coin-hero-wrapper mx-auto max-w-7xl py-6 px-2 sm:px-6 lg:px-8">
-            <div className="coin-hero flex items-start items-center">
-              <div className="logo-name-spacing space-x-2 flex items-start items-center">
+            <div className="coin-hero flex items-center">
+              <div className="logo-name-spacing space-x-2 flex items-center">
                 <img src={data.iconUrl} alt="Logo" width="40" height="auto" />
                 <p>
                   <span className="text-xl font-bold text-gray-900 dark:text-white">
@@ -71,7 +72,7 @@ const About = () => {
                   </span>
                 </p>
               </div>
-              <div className="price-change space-x-2 flex items-start items-baseline">
+              <div className="price-change space-x-2 flex items-baseline">
                 <p className="ml-20 font-bold text-xl text-gray-900 dark:text-white">
                   ${formatNumbers(parseFloat(data.price).toFixed(2))}
                 </p>
