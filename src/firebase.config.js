@@ -8,7 +8,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA3O5BeyoXMsfrS8xcO5Bx2xO2Q830lv3E",
+  apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
   authDomain: "react-crypto-app-cfb48.firebaseapp.com",
   projectId: "react-crypto-app-cfb48",
   storageBucket: "react-crypto-app-cfb48.appspot.com",
