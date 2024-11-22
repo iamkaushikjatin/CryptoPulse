@@ -13,7 +13,7 @@ import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import { auth } from "../firebase.config";
 import Tooltip from "@mui/material/Tooltip";
-import AuthDialog from "../components/shared/AuthDialog"; // Import the AuthDialog component
+import AuthDialog from "../components/shared/AuthDialog"; 
 import SubscriptionContext from "../contexts/SubscriptionContext";
 
 Chart.register(...registerables);
@@ -26,7 +26,6 @@ function CoinTable({ data }) {
   const handleAuthModalClose = () => setIsAuthModalOpen(false);
 
   const getLineColor = (sparklineData) => {
-    // Array has changed where 'null' is last element so filtering out the numeric values first.
     const numericData = sparklineData.row.original.sparkline.filter(
       (value) => !isNaN(parseFloat(value)) && value != null
     );
@@ -36,9 +35,9 @@ function CoinTable({ data }) {
     const startPrice = parseFloat(numericData[0]);
     const endPrice = parseFloat(numericData[numericData.length - 1]);
 
-    if (endPrice > startPrice) return "#00FF5F"; // Green for price up
-    if (endPrice < startPrice) return "#f44336"; // Red for price down
-    return "#FFFFFF"; // White for no change
+    if (endPrice > startPrice) return "#00FF5F"; 
+    if (endPrice < startPrice) return "#f44336"; 
+    return "#FFFFFF"; 
   };
 
   const formatNumbers = (number) => {
@@ -208,7 +207,6 @@ function CoinTable({ data }) {
         },
       },
 
-      // ...rest of your column definitions
     ],
     [watchedCoins, handleAddToWatchlist]
   );
@@ -243,7 +241,7 @@ const Table = ({ data, columns }) => {
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    enableFilters: false, // <-- Remove filtering
+    enableFilters: false,
     debugTable: true,
   });
 

@@ -9,7 +9,7 @@ const AuthChecker = ({ children }) => {
     if (!auth.currentUser) {
       navigate("/");
     }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   return <>{children}</>;
 };

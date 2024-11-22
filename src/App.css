@@ -79,9 +79,6 @@ nav ul {
 .explore {
   height: 200px;
 }
-/*
-.table-container {
-} */
 
 .coin {
   display: flex;
@@ -143,9 +140,9 @@ tbody tr td:nth-child(8) {
 }
 
 img .crypto-logo {
-  height: auto; /* Adjust height proportionally */
-  width: 10rem; /* Increase width */
-  object-fit: contain; /* Ensures the image is scaled correctly */
+  height: auto;
+  width: 10rem;
+  object-fit: contain;
 }
 
 img .user-icon-button {

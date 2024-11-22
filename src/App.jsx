@@ -77,7 +77,6 @@ function App() {
   const createNewSubscriptions = async () => {
     const currentUserId = auth.currentUser?.uid;
 
-    // Directly query the subscription document using the current user ID
     const userRef = doc(db, "subscriptions", currentUserId);
     const userDoc = await getDoc(userRef);
 
@@ -109,17 +108,14 @@ function App() {
     });
   }, []);
 
-  // Adding or Remove Coin to watchlist dependent on user.
   const handleAddToWatchlist = async (coinId, watchedCoins) => {
     const userRef = doc(db, "subscriptions", auth.currentUser?.uid);
 
     if (watchedCoins.includes(coinId)) {
-      // Remove the coin from the watchlist
       await updateDoc(userRef, {
         coins: arrayRemove(coinId),
       });
     } else {
-      // Add the coin to the watchlist
       await updateDoc(userRef, {
         coins: arrayUnion(coinId),
       });

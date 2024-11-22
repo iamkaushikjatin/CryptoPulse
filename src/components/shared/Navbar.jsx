@@ -51,13 +51,10 @@ function Navbar() {
   const [defaultOpenTab, setDefaultOpenTab] = React.useState(0);
 
   const checkAuthAndNavigateOrOpenModal = (event) => {
-    // Prevent default link behavior
     event.preventDefault();
     if (auth.currentUser) {
-      // This will check whether one of mu user's is logged in.
       navigate("/watchlist");
     } else {
-      // If the user is not logged in, open the modal with sign-in
       handleModalOpen(0)();
     }
   };
@@ -100,8 +97,8 @@ function Navbar() {
         <nav className="dark:bg-gray-950 bg-white">
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="relative flex flex-shrink-0 items-center">
+              <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
+                <div className="relative flex flex-shrink-0 items-center ">
                   
                   <PulseRectangle02Icon className="text-gray-900 dark:text-gray-300" />
 

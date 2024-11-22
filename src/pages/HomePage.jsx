@@ -6,12 +6,10 @@ import Banner from "../components/Banner";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [data, setData] = useState([]); // Hold the data here
-  const [filteredData, setFilteredData] = useState([]); // Filtering the data from the search input
-  // const [currency, setCurrency] = useState([]);
+  const [data, setData] = useState([]); 
+  const [filteredData, setFilteredData] = useState([]); 
 
   useEffect(() => {
-    // ?referenceCurrencyUuid=${currency} USE this when building currency change button (this is the query required).
 
     async function requestCoins() {
       const res = await fetch(
@@ -31,10 +29,8 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    // If searchTerm is undefined or empty, simply stop
     if (!searchTerm) return setFilteredData(data);
 
-    // Begin filtering
     const filtered = data.filter((coin) => {
       return coin.name.toLowerCase().includes(searchTerm.toLowerCase());
     });
